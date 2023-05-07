@@ -1,0 +1,77 @@
+#enter your name on bill
+name= input("Enter Your Name :" )
+print("Your Name :",name)
+
+#Total Seats in Theatre
+total_seats = 150
+
+#Total normal seats available in theatre
+normal_seats = 130
+
+#Normal price for Normal seats
+normal_seats_price = 250 
+
+#Total Recliner Seats available in theatre
+recliner_seats = 20
+
+#Normal price for Recliner seats
+recliner_price = 400
+
+#Combo price 
+combo_popcorn_cold_drink = 300
+
+#Show total seats in theatre
+print("Total Seats = ",total_seats)
+
+#show normal seats and price for normal choice 
+print("Total Normal Seats : ", normal_seats , 
+      "       Normal Seats Price : ", normal_seats_price) 
+
+#show recliner seats and price for recliner choice 
+print("Total Recliner Seats : ", recliner_seats , 
+      "       Recliner Seats Price : ", recliner_price)
+
+#show for choice Normal or Recliner 
+print ("""
+Press 1 For Normal Seats 
+Press 2 For Recliner Seats""")
+ 
+ #Input  for choice Normal to 1  or Recliner to 2
+choice = int(input("Enter your choice: "))
+
+#choice for normal seats
+if choice ==1 : 
+    your_seats =float(input("Enter No. of Seats You Want : "))             #Enter the number of seats you want in normal price 
+    total_normal_amount = your_seats*normal_seats_price                    #Total of normal seats and price
+    
+    print("Available Normal Seats : ",int(normal_seats-your_seats),        # show available seats normal and recliner 
+          "      Available Recliner Seat :",recliner_seats)
+    print("""
+    Do You want to Add COMBO Pack of 
+    Popcorn & Cold Drink (200ml):Rs. 300.00
+    Type Yes or No""")                                                     #show the combo offer for user
+    choice =input(" COMBO Pack of Popcorn & Cold Drink (200ml):")          #input for combo pack
+    if choice =="Yes" or "yes" or "y" or "Y"
+    :                                            #User choose yes   
+       print("Total Payable Amount is Rs.: "  
+       , total_normal_amount + combo_popcorn_cold_drink)                   #show total payable amount with combo pack
+    elif choice =="No" or "no" or "n" or "N":                                            #user choose no
+          print("Total Payable Amount is Rs.: "
+        , total_normal_amount + 0)                                         #show total payable amount without combo pack
+
+elif choice ==2:                                                          #user choose Recliner Seat
+   your_seats =float(input("Enter No. of Seats You Want : "))             #enter no. of seats you want in recliner price
+   total_recliner_amount = your_seats*recliner_price                      #Total of recliner seats and price
+   print("Available Recliner Seats : ",int(recliner_seats-your_seats),
+         "      Available Normal Seat :", normal_seats)                   #show the available recilner and normal seats
+   print("""
+    Do You want to Add COMBO Pack of 
+    Popcorn & Cold Drink (200ml):Rs. 300.00
+    Type Yes or No""")                                                    #show the combo offer for user
+   choice =input("COMBO Pack of Popcorn & Cold Drink (200ml) : ")         #input for combo pack
+   if choice =="Yes" or "yes" or "y" or "Y":                                            #User choose yes
+        print("Total Payable Amount is Rs.: "
+        , total_recliner_amount + combo_popcorn_cold_drink)               #show total payable amount with combo pack
+   elif choice =="No" or "no" or "n" or "N":                                            #user choose no
+          print("Total Payable Amount is Rs.: "
+         , total_recliner_amount + 0)                                     #show total payable amount without combo pack
