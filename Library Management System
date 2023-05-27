@@ -1,0 +1,63 @@
+books ={"MATHS":50, "SCIENCE":55, "SOCIAL SCIENCE":40 ,"ENGLISH":60 ,"HINDI":65, 
+        "HOME SCIENCE": 35 , "COMPUTER":44,"HISTORY":66}                         #Books Data base 
+
+while True :
+    Username=input("Username :" )                                                #username input by user
+    Password=input("Password :" )                                                #password input by user 
+    print("")
+    Credentials={"Ashish":"A@145", "Ashu":"Ashu@12","Ayushi":"Ayushi@123","Gupta":"Gupta@23"} #User Database
+    if Username in Credentials.keys():
+        if Password == Credentials[Username]:
+                print("Welcome to The Pubilc Library", "~",Username,"~")                     #library name
+                print("")
+                while True:
+                    print("~"*50)
+                    print("""
+                    Press 1 to Total Availble Books
+                    Press 2 to Add Books
+                    Press 3 to Borrow Books
+                    Press 4 to Return Books
+                    Press 5 to Dispaly Borrowed books along with Username.
+                    Press 0 to Exit """)                                                       #Display Choice
+                    print("~"*50)
+    
+                    choice = int(input("Enter Your Choice :  "))                               #input user choice
+                    if choice == 1:                                                            #user choose 1
+                     for i,j in books.items():
+                        print("-"*30)
+                        print(i,":",j)
+                    elif choice == 2:                                                         #user choose 2
+                        BooksName = input("Enter the Book Name :").upper()
+                        BooksQTY = int(input("Enter the quantity of Books :  "))
+                        books[BooksName] = BooksQTY
+                    elif choice == 3:                                                         #user choose 3
+                        for i,j in books.items():
+                            print("-"*30)
+                            print(i,":",j)
+                        BooksName = input("Enter the name of Book :").upper()
+                        if BooksName in books.keys():
+                            BooksQTY = int(input("Enter quantity of Books:"))
+                            if BooksQTY <= books[BooksName]:
+                                books[BooksName] -= BooksQTY
+                            else:
+                                print("We have only these available of", BooksName, books[BooksName])
+                        else:
+                            print(BooksName, "Book is currently unavailable")
+                    elif choice == 4:                                                       #user choose 4
+                        BooksName = input("Which book you want to Return:").upper()
+                        BooksQTY = int(input("Enter quantity of Books:"))
+                        if BooksName in books.keys():
+                            books[BooksName] += BooksQTY
+                        else:
+                            books[BooksName] = BooksQTY
+                        print("Wrong, Please enter correct Books")
+                    elif choice == 5:                                                        #user choose 5
+                        print("Total Borrowed Books : ",BooksName," : ", BooksQTY, " : ", Username)   
+                    else:
+                        print("Choose Another.")
+                    break
+        else:
+            print("Invalid Password, Enter the correct Password")                           #Incorrect Password
+    else:
+        print("You're not a *Publice Library*  User.")                                      #user is not in credetials
+break
